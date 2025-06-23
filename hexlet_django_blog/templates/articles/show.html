@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% load bootstrap4 i18n %}
+{% get_current_language as LANGUAGE_CODE %}
+
+
+{% block content %}
+<div class="container mt-4">
+  <h1>{{ article.name }}</h1>
+  <div>{{ article.body }}</div>
+  <form action="{% url 'articles_update' id=article.id %}">
+    {% csrf_token %}
+    <button type="submit">Редактировать</button>
+  </form>
+   <form action="{% url 'articles_delete' id=article.id %}" method="post">
+      {% csrf_token %}
+      <input type="submit" value="Удалить">
+    </form>
+</div>
+{% endblock %}

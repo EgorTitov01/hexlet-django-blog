@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% load bootstrap4 i18n %}
+{% get_current_language as LANGUAGE_CODE %}
+
+
+{% block content %}
+{% include 'html_blocks/form_errors.html' %}
+<form action="{% url 'articles_create' %}" method="post">
+  {% include 'articles/form.html' with button_text="Сохранить" %}
+</form>
+{% endblock %}
